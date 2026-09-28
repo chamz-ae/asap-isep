@@ -1,0 +1,621 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   ASAP ISEP — DAGING ASAP
+   Premium Smokehouse / Industrial Restaurant Theme
+   ========================================================= */
+
+/* =========================
+   ROOT COLOR SYSTEM
+   ========================= */
+
+:root {
+  --asap-bg: #0c0b0a;
+  --asap-bg-soft: #121110;
+  --asap-surface: #181614;
+  --asap-surface-2: #211e1b;
+  --asap-surface-3: #292521;
+
+  --asap-border: rgba(255, 255, 255, 0.08);
+  --asap-border-hover: rgba(255, 255, 255, 0.14);
+
+  --asap-text: #f5f1ea;
+  --asap-text-soft: #c9c1b7;
+  --asap-text-muted: #8f877e;
+
+  --asap-fire: #d96b2b;
+  --asap-fire-light: #f08a3c;
+  --asap-fire-dark: #9f431b;
+
+  --asap-smoke: #6f675f;
+
+  --asap-success: #6e9f58;
+  --asap-warning: #c9993e;
+  --asap-danger: #b94a3a;
+  --asap-info: #5d8292;
+
+  --asap-radius-sm: 8px;
+  --asap-radius-md: 12px;
+  --asap-radius-lg: 18px;
+
+  --asap-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.32);
+
+  --asap-shadow-lg:
+    0 20px 50px rgba(0, 0, 0, 0.45);
+
+  --asap-transition:
+    180ms ease;
+}
+
+/* =========================
+   RESET
+   ========================= */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   HTML / BODY
+   ========================= */
+
+html {
+  scroll-behavior: smooth;
+  background: var(--asap-bg);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(217, 107, 43, 0.055),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(255, 255, 255, 0.025),
+      transparent 30%
+    ),
+    var(--asap-bg);
+
+  color: var(--asap-text);
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  line-height: 1.5;
+}
+
+/* =========================
+   SELECTION
+   ========================= */
+
+::selection {
+  background: rgba(217, 107, 43, 0.32);
+  color: #ffffff;
+}
+
+/* =========================
+   LINKS
+   ========================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   BUTTON
+   ========================= */
+
+button {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--asap-fire-light);
+  outline-offset: 2px;
+}
+
+/* =========================
+   FORM ELEMENTS
+   ========================= */
+
+input,
+textarea,
+select {
+  color: var(--asap-text);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--asap-text-muted);
+}
+
+/* =========================
+   PREMIUM SCROLLBAR
+   ========================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #100f0e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3530;
+  border-radius: 999px;
+  border: 2px solid #100f0e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--asap-fire-dark);
+}
+
+/* Firefox */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #3a3530 #100f0e;
+}
+
+/* =========================
+   PREMIUM SURFACE
+   ========================= */
+
+.asap-surface {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(255, 255, 255, 0.008)
+    ),
+    var(--asap-surface);
+
+  border: 1px solid var(--asap-border);
+  border-radius: var(--asap-radius-lg);
+
+  box-shadow: var(--asap-shadow);
+
+  transition:
+    transform var(--asap-transition),
+    border-color var(--asap-transition),
+    box-shadow var(--asap-transition);
+}
+
+.asap-surface:hover {
+  border-color: var(--asap-border-hover);
+}
+
+/* =========================
+   SMOKE EFFECT
+   ========================= */
+
+.asap-smoke-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.asap-smoke-bg::before {
+  content: "";
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  top: -120px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.045),
+      transparent 70%
+    );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+}
+
+/* =========================
+   FIRE ACCENT
+   ========================= */
+
+.asap-accent {
+  color: var(--asap-fire-light);
+}
+
+.asap-accent-line {
+  width: 42px;
+  height: 3px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--asap-fire-dark),
+      var(--asap-fire-light)
+    );
+}
+
+/* =========================
+   CARD
+   ========================= */
+
+.asap-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(0, 0, 0, 0.08)
+    ),
+    var(--asap-surface);
+
+  border: 1px solid var(--asap-border);
+  border-radius: var(--asap-radius-lg);
+
+  box-shadow: var(--asap-shadow);
+
+  transition:
+    transform var(--asap-transition),
+    border-color var(--asap-transition),
+    box-shadow var(--asap-transition);
+}
+
+.asap-card:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(217, 107, 43, 0.22);
+
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+   INPUT PREMIUM
+   ========================= */
+
+.asap-input {
+  width: 100%;
+
+  background: #141210;
+
+  color: var(--asap-text);
+
+  border: 1px solid var(--asap-border);
+
+  border-radius: var(--asap-radius-md);
+
+  padding: 11px 14px;
+
+  transition:
+    border-color var(--asap-transition),
+    box-shadow var(--asap-transition),
+    background var(--asap-transition);
+}
+
+.asap-input:hover {
+  border-color: var(--asap-border-hover);
+}
+
+.asap-input:focus {
+  border-color: var(--asap-fire);
+
+  background: #171411;
+
+  box-shadow:
+    0 0 0 3px rgba(217, 107, 43, 0.12);
+
+  outline: none;
+}
+
+/* =========================
+   PRIMARY BUTTON
+   ========================= */
+
+.asap-button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: 0;
+
+  border-radius: var(--asap-radius-md);
+
+  padding: 10px 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--asap-fire),
+      var(--asap-fire-dark)
+    );
+
+  color: #ffffff;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(159, 67, 27, 0.22);
+
+  transition:
+    transform var(--asap-transition),
+    filter var(--asap-transition),
+    box-shadow var(--asap-transition);
+}
+
+.asap-button-primary:hover {
+  filter: brightness(1.08);
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 12px 28px rgba(159, 67, 27, 0.30);
+}
+
+.asap-button-primary:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   SECONDARY BUTTON
+   ========================= */
+
+.asap-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--asap-border);
+
+  border-radius: var(--asap-radius-md);
+
+  padding: 10px 16px;
+
+  background: var(--asap-surface);
+
+  color: var(--asap-text-soft);
+
+  cursor: pointer;
+
+  transition:
+    background var(--asap-transition),
+    border-color var(--asap-transition),
+    color var(--asap-transition);
+}
+
+.asap-button-secondary:hover {
+  background: var(--asap-surface-2);
+
+  border-color: var(--asap-border-hover);
+
+  color: var(--asap-text);
+}
+
+/* =========================
+   STATUS BADGES
+   ========================= */
+
+.asap-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 4px 9px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  border: 1px solid transparent;
+}
+
+.asap-badge-success {
+  color: #a9d39a;
+  background: rgba(110, 159, 88, 0.12);
+  border-color: rgba(110, 159, 88, 0.2);
+}
+
+.asap-badge-warning {
+  color: #e5c17e;
+  background: rgba(201, 153, 62, 0.12);
+  border-color: rgba(201, 153, 62, 0.2);
+}
+
+.asap-badge-danger {
+  color: #e89a8e;
+  background: rgba(185, 74, 58, 0.12);
+  border-color: rgba(185, 74, 58, 0.2);
+}
+
+.asap-badge-fire {
+  color: #ffb37c;
+  background: rgba(217, 107, 43, 0.12);
+  border-color: rgba(217, 107, 43, 0.2);
+}
+
+/* =========================
+   TABLE
+   ========================= */
+
+.asap-table {
+  width: 100%;
+
+  border-collapse: separate;
+  border-spacing: 0;
+
+  overflow: hidden;
+
+  background: var(--asap-surface);
+
+  border: 1px solid var(--asap-border);
+
+  border-radius: var(--asap-radius-lg);
+}
+
+.asap-table th {
+  padding: 13px 16px;
+
+  background: #141210;
+
+  color: var(--asap-text-muted);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-align: left;
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+
+  border-bottom: 1px solid var(--asap-border);
+}
+
+.asap-table td {
+  padding: 14px 16px;
+
+  color: var(--asap-text-soft);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+.asap-table tbody tr {
+  transition: background var(--asap-transition);
+}
+
+.asap-table tbody tr:hover {
+  background:
+    rgba(217, 107, 43, 0.035);
+}
+
+.asap-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* =========================
+   DIVIDER
+   ========================= */
+
+.asap-divider {
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.10),
+      transparent
+    );
+}
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+
+.asap-heading {
+  color: var(--asap-text);
+
+  font-weight: 700;
+
+  letter-spacing: -0.025em;
+}
+
+.asap-subheading {
+  color: var(--asap-text-soft);
+}
+
+.asap-muted {
+  color: var(--asap-text-muted);
+}
+
+/* =========================
+   NUMBER / MONEY
+   ========================= */
+
+.asap-money {
+  color: var(--asap-text);
+
+  font-variant-numeric:
+    tabular-nums;
+}
+
+.asap-money-accent {
+  color: var(--asap-fire-light);
+
+  font-variant-numeric:
+    tabular-nums;
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+   ========================= */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .asap-card,
+  .asap-surface {
+    border-radius: 14px;
+  }
+
+  .asap-table {
+    font-size: 13px;
+  }
+
+  .asap-table th,
+  .asap-table td {
+    padding: 11px 12px;
+  }
+}
+
+/* =========================
+   REDUCE MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
